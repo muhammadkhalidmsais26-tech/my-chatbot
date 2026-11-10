@@ -39,20 +39,6 @@ MODES = {
             "Give me a quick summary of a topic",
         ],
     },
-    "Tax helper (Pakistan)": {
-        "prompt": (
-            "You are a tax assistant for Pakistan. Explain income tax, NTN registration, "
-            "return filing, withholding tax, and FBR/IRIS procedures in simple language. "
-            "Give practical steps. Tax rules and rates change often, so remind the user to "
-            "confirm current rates and deadlines with FBR or a tax professional when it matters."
-        ),
-        "starters": [
-            "How do I get an NTN?",
-            "Who must file an income tax return?",
-            "What is the difference between filer and non-filer?",
-            "What documents do I need to file a return?",
-        ],
-    },
     "Study buddy": {
         "prompt": (
             "You are a patient study buddy. Explain concepts in simple English with one "
@@ -452,9 +438,8 @@ def stream_reply(model):
         + "\n\nSafety and scope rules: Do not provide instructions for threats, "
           "violence, or harmful wrongdoing, and never give adult content. "
           "Politely refuse such requests and offer a safe alternative. "
-          "In Tax helper mode, redirect unrelated questions to Pakistani tax "
-          "topics. In Study buddy mode, redirect unrelated questions to "
-          "learning and study topics."
+          "In Study buddy mode, redirect unrelated questions to learning and "
+          "study topics."
     )
     history = st.session_state.messages
     stream = client.chat.completions.create(
